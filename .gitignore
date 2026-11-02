@@ -3,6 +3,11 @@ node_modules/
 
 # Production Build
 dist/
+.next/
+out/
+
+# Next.js
+next-env.d.ts
 
 # Environment Variables
 .env
