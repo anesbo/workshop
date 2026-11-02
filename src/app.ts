@@ -3,6 +3,7 @@ import cors from 'cors';
 import helmet from 'helmet';
 import dotenv from 'dotenv';
 import authRoutes from './routes/auth.routes';
+import registrationRoutes from './routes/registration.routes';
 import { errorHandler } from './middlewares/error.middleware';
 
 dotenv.config();
@@ -20,8 +21,9 @@ app.get('/health', (_req: Request, res: Response) => {
   res.status(200).json({ status: 'ok', timestamp: new Date().toISOString() });
 });
 
-// Authentication routes
+// Route mounts
 app.use('/auth', authRoutes);
+app.use('/workshops/register', registrationRoutes);
 
 // Global error handler
 app.use(errorHandler);
